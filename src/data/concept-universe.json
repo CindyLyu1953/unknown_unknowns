@@ -1,0 +1,4442 @@
+{
+  "metadata": {
+    "schema_version": "0.2",
+    "target_range": [
+      200,
+      500
+    ],
+    "concept_count": 440,
+    "validated_seed_count": 35,
+    "taxonomy_candidate_count": 405,
+    "source_count": 9,
+    "top_level_domain_count": 12,
+    "selection_method": "breadth_first_with_equal_per_domain_budget"
+  },
+  "sources": {
+    "edison": {
+      "title": "EDISON Data Science Body of Knowledge — Release 4",
+      "url": "https://github.com/EDISONcommunity/EDSF/blob/master/EDISON02_DS-BoK-release4-v07.pdf",
+      "kind": "body_of_knowledge"
+    },
+    "acm": {
+      "title": "ACM Computing Competencies for Undergraduate Data Science Curricula",
+      "url": "https://www.acm.org/binaries/content/assets/education/curricula-recommendations/dstf_ccdsc2021.pdf",
+      "kind": "curriculum_framework"
+    },
+    "nist": {
+      "title": "NIST Big Data Interoperability Framework",
+      "url": "https://www.nist.gov/itl/big-data-nist/documents/nbdif-version-20-final",
+      "kind": "reference_architecture"
+    },
+    "mitProbability": {
+      "title": "MIT OCW 18.05 Introduction to Probability and Statistics",
+      "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/syllabus/",
+      "kind": "official_course_outline"
+    },
+    "mitML": {
+      "title": "MIT OCW 15.097 Prediction: Machine Learning and Statistics",
+      "url": "https://ocw.mit.edu/courses/15-097-prediction-machine-learning-and-statistics-spring-2012/pages/syllabus/",
+      "kind": "official_course_outline"
+    },
+    "asa": {
+      "title": "PCMI / ASA Curriculum Guidelines for Undergraduate Programs in Data Science",
+      "url": "https://www.amstat.org/docs/default-source/amstat-documents/edu-datascienceguidelines.pdf",
+      "kind": "curriculum_framework"
+    },
+    "data8": {
+      "title": "UC Berkeley Computational and Inferential Thinking",
+      "url": "https://inferentialthinking.com/",
+      "kind": "textbook_structure"
+    },
+    "openintro": {
+      "title": "OpenIntro Statistics",
+      "url": "https://www.openintro.org/book/os/",
+      "kind": "textbook_structure"
+    },
+    "pennState": {
+      "title": "Penn State Statistics Online Course Collection",
+      "url": "https://online.stat.psu.edu/statprogram/courses",
+      "kind": "official_course_collection"
+    }
+  },
+  "concepts": [
+    {
+      "id": "a-b-testing",
+      "name": "A/B Testing",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "pennState",
+        "asa"
+      ]
+    },
+    {
+      "id": "access-control",
+      "name": "Access Control",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "acid-properties",
+      "name": "ACID Properties",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "activation-functions",
+      "name": "Activation Functions",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "algorithmic-fairness",
+      "name": "Algorithmic Fairness",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "algorithms",
+      "name": "Algorithms",
+      "area": "computing",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "alternative-hypothesis",
+      "name": "Alternative Hypothesis",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "analysis-of-variance",
+      "name": "Analysis of Variance",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "analytical-data-systems",
+      "name": "Analytical Data Systems",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "anomaly-detection",
+      "name": "Anomaly Detection",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "anonymization",
+      "name": "Anonymization",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "apriori-algorithm",
+      "name": "Apriori Algorithm",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "artificial-neurons",
+      "name": "Artificial Neurons",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "association-rule-mining",
+      "name": "Association Rule Mining",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "assumption-checking",
+      "name": "Assumption Checking",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "asymptotic-inference",
+      "name": "Asymptotic Inference",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "attention-mechanisms",
+      "name": "Attention Mechanisms",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "average-treatment-effect",
+      "name": "Average Treatment Effect",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "backdoor-criterion",
+      "name": "Backdoor Criterion",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "backpropagation",
+      "name": "Backpropagation",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "bag-of-words-models",
+      "name": "Bag-of-Words Models",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "bar-charts",
+      "name": "Bar Charts",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "base-properties",
+      "name": "BASE Properties",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "batch-normalization",
+      "name": "Batch Normalization",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "batch-processing",
+      "name": "Batch Processing",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "bayes-theorem",
+      "name": "Bayes’ Theorem",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "bayesian-networks",
+      "name": "Bayesian Networks",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "bayesian-statistics",
+      "name": "Bayesian Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "bellman-equations",
+      "name": "Bellman Equations",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "bernoulli-distribution",
+      "name": "Bernoulli Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "bias-detection",
+      "name": "Bias Detection",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "bias-mitigation",
+      "name": "Bias Mitigation",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "big-data-analytics-platforms",
+      "name": "Big Data Analytics Platforms",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "binomial-distribution",
+      "name": "Binomial Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "bivariate-analysis",
+      "name": "Bivariate Analysis",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "blocking",
+      "name": "Blocking",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "bootstrap",
+      "name": "Bootstrap",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "box-plots",
+      "name": "Box Plots",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "business-analytics",
+      "name": "Business Analytics",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "business-intelligence",
+      "name": "Business Intelligence",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "calculus",
+      "name": "Calculus",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "cap-theorem",
+      "name": "CAP Theorem",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "categorical-data",
+      "name": "Categorical Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "categorical-encoding",
+      "name": "Categorical Encoding",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "causal-graphs",
+      "name": "Causal Graphs",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "causal-inference",
+      "name": "Causal Inference",
+      "area": "causal",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "central-limit-theorem",
+      "name": "Central Limit Theorem",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "chart-selection",
+      "name": "Chart Selection",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "classification",
+      "name": "Classification",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "mitML",
+        "edison"
+      ]
+    },
+    {
+      "id": "cloud-architecture",
+      "name": "Cloud Architecture",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "cloud-computing",
+      "name": "Cloud Computing",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "cloud-service-management",
+      "name": "Cloud Service Management",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "cloud-storage",
+      "name": "Cloud Storage",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "cluster-sampling",
+      "name": "Cluster Sampling",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "clustering",
+      "name": "Clustering",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "color-encoding",
+      "name": "Color Encoding",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "column-family-databases",
+      "name": "Column-Family Databases",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "combinatorics",
+      "name": "Combinatorics",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "computer-vision",
+      "name": "Computer Vision",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm"
+      ]
+    },
+    {
+      "id": "conceptual-data-models",
+      "name": "Conceptual Data Models",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "concurrency-control",
+      "name": "Concurrency Control",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "conditional-distributions",
+      "name": "Conditional Distributions",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "conditional-probability",
+      "name": "Conditional Probability",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "confidence-intervals",
+      "name": "Confidence Intervals",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "confirmatory-data-analysis",
+      "name": "Confirmatory Data Analysis",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "confounding",
+      "name": "Confounding",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "consensus",
+      "name": "Consensus",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "continuous-data",
+      "name": "Continuous Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "continuous-random-variables",
+      "name": "Continuous Random Variables",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "control-groups",
+      "name": "Control Groups",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "convex-functions",
+      "name": "Convex Functions",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "convex-sets",
+      "name": "Convex Sets",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "convolutional-neural-networks",
+      "name": "Convolutional Neural Networks",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "correlation",
+      "name": "Correlation",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "correlation-analysis",
+      "name": "Correlation Analysis",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "counting-methods",
+      "name": "Counting Methods",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "covariance",
+      "name": "Covariance",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "covariance-matrix",
+      "name": "Covariance Matrix",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "crisp-dm",
+      "name": "CRISP-DM",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "cross-validation",
+      "name": "Cross-Validation",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "cumulative-distribution-functions",
+      "name": "Cumulative Distribution Functions",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "dashboards",
+      "name": "Dashboards",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-analysis",
+      "name": "Data Analysis",
+      "area": "analysis",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "data-apis",
+      "name": "Data APIs",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-catalogs",
+      "name": "Data Catalogs",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-cleaning",
+      "name": "Data Cleaning",
+      "area": "analysis",
+      "status": "validated_seed",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-collection",
+      "name": "Data Collection",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-collection-and-preparation",
+      "name": "Data Collection and Preparation",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-engineering-and-systems",
+      "name": "Data Engineering and Systems",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-ethics",
+      "name": "Data Ethics",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "data-governance",
+      "name": "Data Governance",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-ingestion",
+      "name": "Data Ingestion",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-integration",
+      "name": "Data Integration",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-lakes",
+      "name": "Data Lakes",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-lifecycle-management",
+      "name": "Data Lifecycle Management",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-lineage",
+      "name": "Data Lineage",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-management",
+      "name": "Data Management",
+      "area": "systems",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "data-management-policy",
+      "name": "Data Management Policy",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-marts",
+      "name": "Data Marts",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-minimization",
+      "name": "Data Minimization",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "data-mining",
+      "name": "Data Mining",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "data-mining-and-unstructured-data",
+      "name": "Data Mining and Unstructured Data",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "data-modeling",
+      "name": "Data Modeling",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "data-normalization",
+      "name": "Data Normalization",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-ownership",
+      "name": "Data Ownership",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-pipelines",
+      "name": "Data Pipelines",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-privacy",
+      "name": "Data Privacy",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-processing-models",
+      "name": "Data Processing Models",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-quality",
+      "name": "Data Quality",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-science",
+      "name": "Data Science",
+      "area": "root",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "data-security",
+      "name": "Data Security",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "data-standardization",
+      "name": "Data Standardization",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-stewardship",
+      "name": "Data Stewardship",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "data-storytelling",
+      "name": "Data Storytelling",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "data-structures",
+      "name": "Data Structures",
+      "area": "computing",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "data-transformation",
+      "name": "Data Transformation",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-types",
+      "name": "Data Types",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "data-validation",
+      "name": "Data Validation",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-visualization",
+      "name": "Data Visualization",
+      "area": "analysis",
+      "status": "validated_seed",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "data-warehouses",
+      "name": "Data Warehouses",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "database-administration",
+      "name": "Database Administration",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "database-management-systems",
+      "name": "Database Management Systems",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "database-systems",
+      "name": "Database Systems",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "decision-analysis",
+      "name": "Decision Analysis",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "decision-support-systems",
+      "name": "Decision Support Systems",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "decision-theory",
+      "name": "Decision Theory",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "deep-learning",
+      "name": "Deep Learning",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "descriptive-statistics",
+      "name": "Descriptive Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "difference-in-differences",
+      "name": "Difference-in-Differences",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "differential-calculus",
+      "name": "Differential Calculus",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "differential-privacy",
+      "name": "Differential Privacy",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "dimensional-modeling",
+      "name": "Dimensional Modeling",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "dimensionality-reduction",
+      "name": "Dimensionality Reduction",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "directed-acyclic-graphs",
+      "name": "Directed Acyclic Graphs",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "discrete-data",
+      "name": "Discrete Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "discrete-mathematics",
+      "name": "Discrete Mathematics",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "discrete-probability",
+      "name": "Discrete Probability",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "discrete-random-variables",
+      "name": "Discrete Random Variables",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "discretization",
+      "name": "Discretization",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "distributed-architectures",
+      "name": "Distributed Architectures",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "distributed-computing",
+      "name": "Distributed Computing",
+      "area": "systems",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "distributed-file-systems",
+      "name": "Distributed File Systems",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "distributed-storage",
+      "name": "Distributed Storage",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "distribution-analysis",
+      "name": "Distribution Analysis",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "document-clustering",
+      "name": "Document Clustering",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "document-databases",
+      "name": "Document Databases",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "document-retrieval",
+      "name": "Document Retrieval",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "dropout",
+      "name": "Dropout",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "duplicate-detection",
+      "name": "Duplicate Detection",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "eigenvalues-and-eigenvectors",
+      "name": "Eigenvalues and Eigenvectors",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "elastic-computing",
+      "name": "Elastic Computing",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "encryption",
+      "name": "Encryption",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "entity-relationship-models",
+      "name": "Entity–Relationship Models",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "events",
+      "name": "Events",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "executive-dashboards",
+      "name": "Executive Dashboards",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "expectation",
+      "name": "Expectation",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "expectation-maximization-algorithm",
+      "name": "Expectation–Maximization Algorithm",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "expected-utility",
+      "name": "Expected Utility",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "experiment-metrics",
+      "name": "Experiment Metrics",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "pennState",
+        "asa"
+      ]
+    },
+    {
+      "id": "experimental-design",
+      "name": "Experimental Design",
+      "area": "causal",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "experimentation-and-causal-reasoning",
+      "name": "Experimentation and Causal Reasoning",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "explainable-ai",
+      "name": "Explainable AI",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "eda",
+      "name": "Exploratory Data Analysis",
+      "area": "analysis",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "exponential-distribution",
+      "name": "Exponential Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "extract-transform-load",
+      "name": "Extract–Transform–Load",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "factorial-designs",
+      "name": "Factorial Designs",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "fairness-metrics",
+      "name": "Fairness Metrics",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "fault-tolerance",
+      "name": "Fault Tolerance",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "feature-attribution",
+      "name": "Feature Attribution",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "feature-engineering",
+      "name": "Feature Engineering",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "feature-extraction",
+      "name": "Feature Extraction",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "feature-scaling",
+      "name": "Feature Scaling",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "feature-selection",
+      "name": "Feature Selection",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "feedforward-networks",
+      "name": "Feedforward Networks",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "frequent-itemsets",
+      "name": "Frequent Itemsets",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "frequentist-estimation",
+      "name": "Frequentist Estimation",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "frequentist-statistics",
+      "name": "Frequentist Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "geometric-distribution",
+      "name": "Geometric Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "geospatial-visualization",
+      "name": "Geospatial Visualization",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "global-explanations",
+      "name": "Global Explanations",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "gradients",
+      "name": "Gradients",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "graph-data-analytics",
+      "name": "Graph Data Analytics",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "graph-databases",
+      "name": "Graph Databases",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "graph-theory",
+      "name": "Graph Theory",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "graphical-models",
+      "name": "Graphical Models",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "group-fairness",
+      "name": "Group Fairness",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "guardrail-metrics",
+      "name": "Guardrail Metrics",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "pennState",
+        "asa"
+      ]
+    },
+    {
+      "id": "heatmaps",
+      "name": "Heatmaps",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "hessians",
+      "name": "Hessians",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "histograms",
+      "name": "Histograms",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "horizontal-scaling",
+      "name": "Horizontal Scaling",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "hypothesis-formation",
+      "name": "Hypothesis Formation",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "hypothesis-testing",
+      "name": "Hypothesis Testing",
+      "area": "statistics",
+      "status": "validated_seed",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "identity-management",
+      "name": "Identity Management",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "image-classification",
+      "name": "Image Classification",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm"
+      ]
+    },
+    {
+      "id": "image-representation",
+      "name": "Image Representation",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm"
+      ]
+    },
+    {
+      "id": "independence",
+      "name": "Independence",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "indexes",
+      "name": "Indexes",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "individual-fairness",
+      "name": "Individual Fairness",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "information-extraction",
+      "name": "Information Extraction",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "information-retrieval",
+      "name": "Information Retrieval",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "information-theory",
+      "name": "Information Theory",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "informed-consent",
+      "name": "Informed Consent",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "infrastructure-as-a-service",
+      "name": "Infrastructure as a Service",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "instrumental-variables",
+      "name": "Instrumental Variables",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "integral-calculus",
+      "name": "Integral Calculus",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "intellectual-property",
+      "name": "Intellectual Property",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "interactive-visualization",
+      "name": "Interactive Visualization",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "interval-estimation",
+      "name": "Interval Estimation",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "inverse-probability-weighting",
+      "name": "Inverse Probability Weighting",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "inverted-indexes",
+      "name": "Inverted Indexes",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "jackknife",
+      "name": "Jackknife",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "jacobians",
+      "name": "Jacobians",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "joint-distributions",
+      "name": "Joint Distributions",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "key-management",
+      "name": "Key Management",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "key-performance-indicators",
+      "name": "Key Performance Indicators",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "key-value-stores",
+      "name": "Key–Value Stores",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "knowledge-discovery-in-databases",
+      "name": "Knowledge Discovery in Databases",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "kurtosis",
+      "name": "Kurtosis",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "language-modeling",
+      "name": "Language Modeling",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "large-scale-storage",
+      "name": "Large-Scale Storage",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "latent-variable-models",
+      "name": "Latent Variable Models",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "law-of-large-numbers",
+      "name": "Law of Large Numbers",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "lemmatization",
+      "name": "Lemmatization",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "likelihood",
+      "name": "Likelihood",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "limits",
+      "name": "Limits",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "line-charts",
+      "name": "Line Charts",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "linear-algebra",
+      "name": "Linear Algebra",
+      "area": "mathematics",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "linear-independence",
+      "name": "Linear Independence",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "linear-transformations",
+      "name": "Linear Transformations",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "link-prediction",
+      "name": "Link Prediction",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "literature-review",
+      "name": "Literature Review",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "local-explanations",
+      "name": "Local Explanations",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "logical-data-models",
+      "name": "Logical Data Models",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "long-short-term-memory",
+      "name": "Long Short-Term Memory",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine Learning",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "acm",
+        "mitML"
+      ]
+    },
+    {
+      "id": "machine-learning-operations",
+      "name": "Machine Learning Operations",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "nist"
+      ]
+    },
+    {
+      "id": "marginal-distributions",
+      "name": "Marginal Distributions",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "markov-chains",
+      "name": "Markov Chains",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "markov-decision-processes",
+      "name": "Markov Decision Processes",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "markov-random-fields",
+      "name": "Markov Random Fields",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "matching",
+      "name": "Matching",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "mathematical-foundations",
+      "name": "Mathematical Foundations",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "mathematical-logic",
+      "name": "Mathematical Logic",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "area": "mathematics",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "matrices",
+      "name": "Matrices",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "matrix-decomposition",
+      "name": "Matrix Decomposition",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "matrix-multiplication",
+      "name": "Matrix Multiplication",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "matrix-rank",
+      "name": "Matrix Rank",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "maximum-likelihood-estimation",
+      "name": "Maximum Likelihood Estimation",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "mean-average-precision",
+      "name": "Mean Average Precision",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "measurement",
+      "name": "Measurement",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "measures-of-center",
+      "name": "Measures of Center",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "measures-of-variation",
+      "name": "Measures of Variation",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "mediation-analysis",
+      "name": "Mediation Analysis",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "metadata",
+      "name": "Metadata",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "metadata-management",
+      "name": "Metadata Management",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "method-of-moments",
+      "name": "Method of Moments",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "missing-data",
+      "name": "Missing Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "missing-data-imputation",
+      "name": "Missing Data Imputation",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "model-checking",
+      "name": "Model Checking",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "model-evaluation",
+      "name": "Model Evaluation",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "mitML",
+        "acm"
+      ]
+    },
+    {
+      "id": "model-interpretability",
+      "name": "Model Interpretability",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "acm"
+      ]
+    },
+    {
+      "id": "model-selection",
+      "name": "Model Selection",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitML",
+        "acm"
+      ]
+    },
+    {
+      "id": "monte-carlo-simulation",
+      "name": "Monte Carlo Simulation",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "multinomial-distribution",
+      "name": "Multinomial Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "multiple-comparisons-in-experiments",
+      "name": "Multiple Comparisons in Experiments",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "pennState",
+        "asa"
+      ]
+    },
+    {
+      "id": "multiple-testing",
+      "name": "Multiple Testing",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "multivariable-calculus",
+      "name": "Multivariable Calculus",
+      "area": "mathematics",
+      "status": "validated_seed",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "multivariate-analysis",
+      "name": "Multivariate Analysis",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "multivariate-normal-distribution",
+      "name": "Multivariate Normal Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "multivariate-statistics",
+      "name": "Multivariate Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "pennState"
+      ]
+    },
+    {
+      "id": "named-entity-recognition",
+      "name": "Named Entity Recognition",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "natural-language-processing",
+      "name": "Natural Language Processing",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "network-visualization",
+      "name": "Network Visualization",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "neural-networks",
+      "name": "Neural Networks",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "non-relational-data",
+      "name": "Non-Relational Data",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "nonparametric-statistics",
+      "name": "Nonparametric Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "normal-distribution",
+      "name": "Normal Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "normalization-forms",
+      "name": "Normalization Forms",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "nosql-databases",
+      "name": "NoSQL Databases",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "null-hypothesis",
+      "name": "Null Hypothesis",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "numerical-linear-algebra",
+      "name": "Numerical Linear Algebra",
+      "area": "mathematics",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "objective-functions",
+      "name": "Objective Functions",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "observational-studies",
+      "name": "Observational Studies",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "online-analytical-processing",
+      "name": "Online Analytical Processing",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "online-transaction-processing",
+      "name": "Online Transaction Processing",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "optimization",
+      "name": "Optimization",
+      "area": "mathematics",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "ordinal-data",
+      "name": "Ordinal Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "orthogonality",
+      "name": "Orthogonality",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "outlier-detection",
+      "name": "Outlier Detection",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "p-values",
+      "name": "P-values",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "parallel-computing",
+      "name": "Parallel Computing",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "partial-derivatives",
+      "name": "Partial Derivatives",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "partitioning",
+      "name": "Partitioning",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "pattern-discovery",
+      "name": "Pattern Discovery",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "permutation-tests",
+      "name": "Permutation Tests",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "physical-data-models",
+      "name": "Physical Data Models",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "pipeline-monitoring",
+      "name": "Pipeline Monitoring",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "platform-as-a-service",
+      "name": "Platform as a Service",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "point-estimation",
+      "name": "Point Estimation",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "poisson-distribution",
+      "name": "Poisson Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "policies",
+      "name": "Policies",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "policy-gradient-methods",
+      "name": "Policy Gradient Methods",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "position-encoding",
+      "name": "Position Encoding",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "positive-definite-matrices",
+      "name": "Positive Definite Matrices",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "potential-outcomes",
+      "name": "Potential Outcomes",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "power-analysis",
+      "name": "Power Analysis",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "precision-at-k",
+      "name": "Precision at K",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "predictive-analytics",
+      "name": "Predictive Analytics",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "prescriptive-analytics",
+      "name": "Prescriptive Analytics",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "pca",
+      "name": "Principal Component Analysis",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "privacy",
+      "name": "Privacy",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "privacy-risk",
+      "name": "Privacy Risk",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "probabilistic-modeling",
+      "name": "Probabilistic Modeling",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "probability",
+      "name": "Probability",
+      "area": "statistics",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "probability-axioms",
+      "name": "Probability Axioms",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "probability-density-functions",
+      "name": "Probability Density Functions",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "probability-distributions",
+      "name": "Probability Distributions",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "probability-mass-functions",
+      "name": "Probability Mass Functions",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "programming",
+      "name": "Programming",
+      "area": "computing",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "project-management",
+      "name": "Project Management",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "project-quality-management",
+      "name": "Project Quality Management",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "project-risk-management",
+      "name": "Project Risk Management",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "project-scope-management",
+      "name": "Project Scope Management",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "propensity-scores",
+      "name": "Propensity Scores",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "pseudonymization",
+      "name": "Pseudonymization",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "purpose-limitation",
+      "name": "Purpose Limitation",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "area": "computing",
+      "status": "validated_seed",
+      "source_refs": []
+    },
+    {
+      "id": "q-learning",
+      "name": "Q-Learning",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "quantiles",
+      "name": "Quantiles",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "query-languages",
+      "name": "Query Languages",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "query-optimization",
+      "name": "Query Optimization",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "query-processing",
+      "name": "Query Processing",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "random-assignment",
+      "name": "Random Assignment",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "random-experiments",
+      "name": "Random Experiments",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "random-variables",
+      "name": "Random Variables",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "randomized-experiments",
+      "name": "Randomized Experiments",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "ranking",
+      "name": "Ranking",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "recall-at-k",
+      "name": "Recall at K",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "recommender-systems",
+      "name": "Recommender Systems",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitML"
+      ]
+    },
+    {
+      "id": "record-linkage",
+      "name": "Record Linkage",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "edison"
+      ]
+    },
+    {
+      "id": "recurrence-relations",
+      "name": "Recurrence Relations",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "recurrent-neural-networks",
+      "name": "Recurrent Neural Networks",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "regression",
+      "name": "Regression",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "regression-discontinuity",
+      "name": "Regression Discontinuity",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "regression-models",
+      "name": "Regression Models",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitML",
+        "pennState"
+      ]
+    },
+    {
+      "id": "regulatory-compliance",
+      "name": "Regulatory Compliance",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "reinforcement-learning",
+      "name": "Reinforcement Learning",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "relational-models",
+      "name": "Relational Models",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "relevance-scoring",
+      "name": "Relevance Scoring",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "reliability",
+      "name": "Reliability",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "replication",
+      "name": "Replication",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "representation-learning",
+      "name": "Representation Learning",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "reproducibility",
+      "name": "Reproducibility",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "requirements-engineering",
+      "name": "Requirements Engineering",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "research-and-decision-practice",
+      "name": "Research and Decision Practice",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "research-design",
+      "name": "Research Design",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "research-ethics",
+      "name": "Research Ethics",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "research-methods",
+      "name": "Research Methods",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "research-questions",
+      "name": "Research Questions",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "responsible-data-science",
+      "name": "Responsible Data Science",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa",
+        "nist"
+      ]
+    },
+    {
+      "id": "responsible-data-use",
+      "name": "Responsible Data Use",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "asa"
+      ]
+    },
+    {
+      "id": "risk-analysis",
+      "name": "Risk Analysis",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "sample-size-planning",
+      "name": "Sample Size Planning",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "sample-spaces",
+      "name": "Sample Spaces",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "sampling",
+      "name": "Sampling",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "sampling-distributions",
+      "name": "Sampling Distributions",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "scalable-data-systems",
+      "name": "Scalable Data Systems",
+      "area": "systems",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "scale-selection",
+      "name": "Scale Selection",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "scatter-plots",
+      "name": "Scatter Plots",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "schema-design",
+      "name": "Schema Design",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "search-engines",
+      "name": "Search Engines",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "security-compliance",
+      "name": "Security Compliance",
+      "area": "responsible-data-science",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "selection-bias",
+      "name": "Selection Bias",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "semi-structured-data",
+      "name": "Semi-Structured Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "sensitivity-analysis",
+      "name": "Sensitivity Analysis",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "sensitivity-analysis-for-decisions",
+      "name": "Sensitivity Analysis for Decisions",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "sensor-data-collection",
+      "name": "Sensor Data Collection",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "sentiment-analysis",
+      "name": "Sentiment Analysis",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "sequence-mining",
+      "name": "Sequence Mining",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "sequential-testing",
+      "name": "Sequential Testing",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "pennState",
+        "asa"
+      ]
+    },
+    {
+      "id": "set-theory",
+      "name": "Set Theory",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "shape-encoding",
+      "name": "Shape Encoding",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "simple-random-sampling",
+      "name": "Simple Random Sampling",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "singular-value-decomposition",
+      "name": "Singular Value Decomposition",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "skewness",
+      "name": "Skewness",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "software-as-a-service",
+      "name": "Software as a Service",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "software-design",
+      "name": "Software Design",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "software-engineering-for-data-science",
+      "name": "Software Engineering for Data Science",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "software-testing",
+      "name": "Software Testing",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "area": "systems",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "star-schemas",
+      "name": "Star Schemas",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "statistical-inference",
+      "name": "Statistical Inference",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "statistical-learning-theory",
+      "name": "Statistical Learning Theory",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitML"
+      ]
+    },
+    {
+      "id": "statistical-power",
+      "name": "Statistical Power",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "statistics",
+      "name": "Statistics",
+      "area": "statistics",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "stemming",
+      "name": "Stemming",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "stochastic-processes",
+      "name": "Stochastic Processes",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "stratified-sampling",
+      "name": "Stratified Sampling",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "stream-processing",
+      "name": "Stream Processing",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "structured-data",
+      "name": "Structured Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "sufficient-statistics",
+      "name": "Sufficient Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "summary-statistics",
+      "name": "Summary Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "openintro",
+        "pennState"
+      ]
+    },
+    {
+      "id": "supervised-learning",
+      "name": "Supervised Learning",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "surveys",
+      "name": "Surveys",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "synthetic-controls",
+      "name": "Synthetic Controls",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "taylor-approximation",
+      "name": "Taylor Approximation",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "acm",
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "temporal-difference-learning",
+      "name": "Temporal-Difference Learning",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "test-statistics",
+      "name": "Test Statistics",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "text-classification",
+      "name": "Text Classification",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "text-preprocessing",
+      "name": "Text Preprocessing",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "tf-idf",
+      "name": "TF–IDF",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "time-series-analysis",
+      "name": "Time Series Analysis",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "tokenization",
+      "name": "Tokenization",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "transactions",
+      "name": "Transactions",
+      "area": "data-management",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "transformers",
+      "name": "Transformers",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "treatment-groups",
+      "name": "Treatment Groups",
+      "area": "experimentation-and-causal-reasoning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "trees",
+      "name": "Trees",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "type-i-error",
+      "name": "Type I Error",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "type-ii-error",
+      "name": "Type II Error",
+      "area": "statistics",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "uncertainty-quantification",
+      "name": "Uncertainty Quantification",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "pennState"
+      ]
+    },
+    {
+      "id": "uniform-distribution",
+      "name": "Uniform Distribution",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability",
+        "pennState"
+      ]
+    },
+    {
+      "id": "univariate-analysis",
+      "name": "Univariate Analysis",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "data8",
+        "asa"
+      ]
+    },
+    {
+      "id": "unstructured-data",
+      "name": "Unstructured Data",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8"
+      ]
+    },
+    {
+      "id": "unsupervised-learning",
+      "name": "Unsupervised Learning",
+      "area": "ml",
+      "status": "validated_seed",
+      "source_refs": [
+        "edison",
+        "mitML"
+      ]
+    },
+    {
+      "id": "validity",
+      "name": "Validity",
+      "area": "research-and-decision-practice",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison"
+      ]
+    },
+    {
+      "id": "value-functions",
+      "name": "Value Functions",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "variance",
+      "name": "Variance",
+      "area": "probability",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "mitProbability"
+      ]
+    },
+    {
+      "id": "vector-spaces",
+      "name": "Vector Spaces",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "vectors",
+      "name": "Vectors",
+      "area": "mathematical-foundations",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "vertical-scaling",
+      "name": "Vertical Scaling",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    },
+    {
+      "id": "visual-encoding",
+      "name": "Visual Encoding",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "visualization-accessibility",
+      "name": "Visualization Accessibility",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "visualization-integrity",
+      "name": "Visualization Integrity",
+      "area": "data-analysis",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "web-scraping",
+      "name": "Web Scraping",
+      "area": "data-collection-and-preparation",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "asa",
+        "data8",
+        "edison"
+      ]
+    },
+    {
+      "id": "weight-initialization",
+      "name": "Weight Initialization",
+      "area": "machine-learning",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "word-embeddings",
+      "name": "Word Embeddings",
+      "area": "data-mining-and-unstructured-data",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "acm"
+      ]
+    },
+    {
+      "id": "workflow-orchestration",
+      "name": "Workflow Orchestration",
+      "area": "data-engineering-and-systems",
+      "status": "taxonomy_candidate",
+      "source_refs": [
+        "edison",
+        "nist"
+      ]
+    }
+  ]
+}
