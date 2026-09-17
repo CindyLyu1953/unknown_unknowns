@@ -1,8 +1,12 @@
-# Data Science Universe
+# Unknown Unknowns — Data Science Universe
 
-Double-click **Open Data Science Universe.command** to launch the original atlas, or **Open Minimal Data Science Universe.command** to launch the minimal interface.
+An exploratory concept graph for discovering what to learn next. The interface groups 440 data science concepts into 12 logical domains and supports search, concept details, prerequisite relationships, and point-to-point learning directions.
 
-Do not open `index.html` directly with `file://`; it is the Vite source entry. The production app lives in `dist/` and the launcher serves it locally at `http://127.0.0.1:4190/`.
+## Open the app
+
+Double-click **Open Data Science Universe.command**. The launcher serves the production build locally at `http://127.0.0.1:4190/`.
+
+Do not open `index.html` directly with `file://`; it is the Vite source entry.
 
 ## Development
 
@@ -17,9 +21,12 @@ pnpm dev
 pnpm build
 ```
 
-The map is driven by the structured files in `src/data/`: 440 concepts, 475 relationships, and offline-generated D3 terrain.
+The structured graph data lives in `src/data/`: 440 concepts and 475 `prerequisite_of` / `part_of` relationships.
 
-UI variants can also be opened directly:
+## GitHub Pages
 
-- Original atlas: `http://127.0.0.1:4190/?variant=world`
-- Minimal interface: `http://127.0.0.1:4190/?variant=minimal`
+Pushes to `main` automatically build and deploy the site through `.github/workflows/deploy.yml`.
+
+Before the first deployment, open the repository's **Settings → Pages** and set **Source** to **GitHub Actions**. The published site is available at:
+
+`https://cindylyu1953.github.io/unknown_unknowns/`

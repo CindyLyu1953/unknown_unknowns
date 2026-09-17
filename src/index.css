@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
 @import 'tailwindcss';
-
-@theme {
-  --font-display: 'Cinzel', serif;
-  --font-body: 'Crimson Pro', serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
 
 html, body, #root {
   height: 100%;
@@ -24,72 +15,18 @@ button, input {
   font: inherit;
 }
 
-button:focus-visible,
-input:focus-visible {
-  outline: 2px solid #f0d998;
-  outline-offset: 2px;
-}
-
-.map-control {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  border: 1px solid rgba(217, 170, 75, 0.35);
-  background: rgba(8, 18, 31, 0.9);
-  color: #f0d998;
-  cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
-}
-
-.map-control:hover {
-  background: rgba(23, 40, 59, 0.96);
-  border-color: rgba(240, 217, 152, 0.7);
-}
-
-.map-control:active {
-  transform: scale(0.96);
-}
-
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(200, 169, 110, 0.3);
-  border-radius: 2px;
+  background: #d0d7de;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 169, 110, 0.5);
-}
-
-@keyframes fog-drift {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(8px, -5px); }
-  100% { transform: translate(0, 0); }
-}
-
-@keyframes discovery-ring {
-  0% { transform: scale(0.5); opacity: 0.9; }
-  100% { transform: scale(3); opacity: 0; }
-}
-
-@keyframes shimmer {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.5; }
-}
-
-.discovery-ring {
-  animation: discovery-ring 1.2s ease-out forwards;
-}
-
-.shimmer {
-  animation: shimmer 2s ease-in-out infinite;
+  background: #8c959f;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -101,17 +38,7 @@ input:focus-visible {
   }
 }
 
-@media (max-width: 720px) {
-  .concept-panel {
-    width: 100% !important;
-    top: 22% !important;
-    height: 78% !important;
-    border-left: 0 !important;
-    border-top: 1px solid rgba(200,169,110,0.15);
-  }
-}
-
-/* Minimal UI variant — deliberately separate from the original atlas theme. */
+/* Single, minimal product UI. */
 .minimal-app {
   --minimal-bg: #f6f8fa;
   --minimal-surface: #ffffff;
@@ -128,11 +55,9 @@ input:focus-visible {
 }
 
 .minimal-app button,
-.minimal-app a,
 .minimal-app input { font-family: inherit; }
 .minimal-app button { cursor: pointer; }
 .minimal-app button:focus-visible,
-.minimal-app a:focus-visible,
 .minimal-app input:focus-visible { outline: 2px solid var(--minimal-blue); outline-offset: 2px; }
 
 .minimal-header {
@@ -174,10 +99,7 @@ input:focus-visible {
 .minimal-search-results p { margin: 0; padding: 16px; color: var(--minimal-muted); font-size: 13px; }
 
 .minimal-header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
-.minimal-header-actions a,
 .minimal-header-actions button { min-height: 40px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 14px; border-radius: 7px; font-size: 13px; font-weight: 500; text-decoration: none; transition: background 160ms ease, border-color 160ms ease; }
-.minimal-header-actions a { color: var(--minimal-text); border: 1px solid var(--minimal-border); background: #f6f8fa; }
-.minimal-header-actions a:hover { background: #eaeef2; }
 .minimal-header-actions .primary { color: #fff; border: 1px solid rgba(27,31,36,.15); background: #1f883d; box-shadow: 0 1px 0 rgba(27,31,36,.1); }
 .minimal-header-actions .primary:hover,
 .minimal-header-actions .primary.active { background: #1a7f37; }
@@ -245,17 +167,16 @@ input:focus-visible {
 .minimal-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .minimal-tags span { padding: 4px 8px; border: 1px solid var(--minimal-border); border-radius: 999px; color: #424a53; background: #f6f8fa; font-size: 12px; }
 
-.minimal-map-controls { position: absolute; z-index: 20; right: 20px; bottom: 28px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--minimal-border); border-radius: 8px; background: #fff; box-shadow: 0 3px 12px rgba(31,35,40,.15); }
-.minimal-map-controls button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-bottom: 1px solid var(--minimal-border); color: var(--minimal-text); background: #fff; font-size: 20px; }
-.minimal-map-controls button:last-child { border-bottom: 0; }
-.minimal-map-controls button:hover { background: #f6f8fa; }
+.graph-controls { position: absolute; z-index: 20; right: 20px; bottom: 28px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--minimal-border); border-radius: 8px; background: #fff; box-shadow: 0 3px 12px rgba(31,35,40,.15); }
+.graph-controls button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-bottom: 1px solid var(--minimal-border); color: var(--minimal-text); background: #fff; font-size: 20px; }
+.graph-controls button:last-child { border-bottom: 0; }
+.graph-controls button:hover { background: #f6f8fa; }
 .minimal-help { position: absolute; z-index: 20; bottom: 18px; left: 50%; transform: translateX(-50%); padding: 7px 11px; border: 1px solid var(--minimal-border); border-radius: 999px; color: var(--minimal-muted); background: rgba(255,255,255,.92); box-shadow: 0 2px 8px rgba(31,35,40,.08); font-size: 12px; white-space: nowrap; }
 .minimal-help span { margin: 0 5px; color: #afb8c1; }
 
 @media (max-width: 900px) {
   .minimal-header { grid-template-columns: 1fr auto; gap: 12px; }
   .minimal-brand span,
-  .minimal-header-actions a { display: none; }
   .minimal-search { position: absolute; top: 72px; left: 12px; right: 12px; }
   .minimal-directions { top: 120px; width: min(390px, 100%); }
   .minimal-details { top: 64px; width: min(430px, 100%); }

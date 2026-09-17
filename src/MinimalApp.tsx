@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import MinimalWorldMap from './components/MinimalWorldMap';
+import ConceptClusterGraph from './components/ConceptClusterGraph';
 import { concepts, conceptMap, getConceptDescription, relationCount } from './data/concepts';
 import type { Concept } from './data/concepts';
 import { findKnowledgeRoute, routeStepLabels } from './navigation/route-engine';
@@ -106,11 +106,11 @@ export default function MinimalApp() {
   const open = useCallback((id: string) => { const concept = conceptMap.get(id); if (concept) setOpenConcept(concept); setSelectedId(id); }, []);
 
   return <div className="minimal-app">
-    <MinimalWorldMap selectedId={selectedId} onSelect={id => { setSelectedId(id); if (!id) setOpenConcept(null); }} onOpen={open} focusId={focusId} onFocused={() => setFocusId(null)} route={route} leftInset={directionsOpen ? 390 : 0} />
+    <ConceptClusterGraph selectedId={selectedId} onSelect={id => { setSelectedId(id); if (!id) setOpenConcept(null); }} onOpen={open} focusId={focusId} onFocused={() => setFocusId(null)} route={route} leftInset={directionsOpen ? 390 : 0} />
     <header className="minimal-header">
       <div className="minimal-brand"><div className="minimal-logo">DS</div><div><h1>Data Science Universe</h1><span>{concepts.length} concepts · {relationCount} relations</span></div></div>
       <Search onSelect={focus} />
-      <div className="minimal-header-actions"><a href="?variant=world">Atlas view</a><button type="button" className={directionsOpen ? 'primary active' : 'primary'} aria-pressed={directionsOpen} onClick={() => setDirectionsOpen(value => !value)}><RouteIcon/>Directions</button></div>
+      <div className="minimal-header-actions"><button type="button" className={directionsOpen ? 'primary active' : 'primary'} aria-pressed={directionsOpen} onClick={() => setDirectionsOpen(value => !value)}><RouteIcon/>Directions</button></div>
     </header>
     {directionsOpen && <Directions selectedId={selectedId} startId={startId} endId={endId} onStart={id => { setStartId(id); setOpenConcept(null); }} onEnd={id => { setEndId(id); setOpenConcept(null); }} onFocus={focus} onSwap={() => { setStartId(endId); setEndId(startId); }} onClear={() => { setStartId(null); setEndId(null); }} onClose={() => setDirectionsOpen(false)} />}
     {openConcept && <Details concept={openConcept} onClose={() => setOpenConcept(null)} />}
