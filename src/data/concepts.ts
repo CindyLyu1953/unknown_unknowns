@@ -1,5 +1,6 @@
 import universeData from './concept-universe.json';
 import pairData from './concept-pairs.json';
+import descriptionData from './concept-descriptions.json';
 
 export type ConceptImportance = 1 | 2 | 3;
 export type ClusterId =
@@ -125,6 +126,7 @@ export const concepts: Concept[] = universeData.concepts.filter(raw => raw.id !=
 
 export const conceptMap = new Map(concepts.map(concept => [concept.id, concept]));
 const nameById = new Map(concepts.map(concept => [concept.id, concept.name]));
+const generatedDescriptions = descriptionData.descriptions as Record<string, { summary?: string }>;
 
 function names(ids: string[], fallback: string) {
   const values = ids.map(id => nameById.get(id)).filter(Boolean).slice(0, 3);
@@ -132,6 +134,8 @@ function names(ids: string[], fallback: string) {
 }
 
 export function getConceptSummary(concept: Concept) {
+  const generated = generatedDescriptions[concept.id]?.summary?.trim();
+  if (generated) return generated;
   const parentNames = names(concept.parents, concept.region);
   const type = /algorithm/i.test(concept.name) ? 'algorithm'
     : /model|regression|network/i.test(concept.name) ? 'modeling concept'
