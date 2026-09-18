@@ -4,7 +4,7 @@ import type { Concept } from '../data/concepts';
 import { useCamera } from '../hooks/useCamera';
 import type { KnowledgeRoute } from '../navigation/route-engine';
 
-type RelationshipKind = 'prerequisite' | 'part_of';
+type RelationshipKind = 'prerequisite' | 'part_of' | 'related';
 type Position = { x: number; y: number };
 type VisibleEdge = { source: string; target: string; kind: RelationshipKind };
 
@@ -78,10 +78,10 @@ function drawEdge(ctx: CanvasRenderingContext2D, from: Position, to: Position, k
   const start = { x: from.x + Math.cos(angle) * startRadius, y: from.y + Math.sin(angle) * startRadius };
   const end = { x: to.x - Math.cos(angle) * endRadius, y: to.y - Math.sin(angle) * endRadius };
   ctx.save();
-  ctx.strokeStyle = strong ? '#1c8c78' : kind === 'prerequisite' ? '#74ad9d' : '#a6b8b1';
+  ctx.strokeStyle = strong ? '#1c8c78' : kind === 'prerequisite' ? '#74ad9d' : kind === 'related' ? '#6f76a8' : '#a6b8b1';
   ctx.globalAlpha = strong ? 1 : .72;
   ctx.lineWidth = (strong ? 2.5 : 1.3) / zoom;
-  ctx.setLineDash(kind === 'part_of' ? [5 / zoom, 5 / zoom] : []);
+  ctx.setLineDash(kind === 'part_of' ? [5 / zoom, 5 / zoom] : kind === 'related' ? [2 / zoom, 5 / zoom] : []);
   ctx.beginPath(); ctx.moveTo(start.x, start.y); ctx.lineTo(end.x, end.y); ctx.stroke();
   if (kind === 'prerequisite') {
     const size = 7 / zoom;
@@ -110,7 +110,11 @@ export default function LocalConceptGraph({ rootId, selectedId, onSelect, onOpen
     if (route) return new Map(route.conceptIds.map((id, index) => [id, { x: (index - (route.conceptIds.length - 1) / 2) * 230, y: 0 }]));
     return rootId ? layoutNeighborhood(rootId, neighborhoodIds) : new Map<string, Position>();
   }, [neighborhoodIds, rootId, route]);
-  const edges = useMemo(() => visibleEdges(displayIds), [displayIds]);
+  const edges = useMemo(() => route ? route.steps.map(step => ({
+    source: step.fromId,
+    target: step.toId,
+    kind: step.kind === 'concept_bridge' ? 'related' as const : step.kind === 'zoom_out' || step.kind === 'enter_detail' ? 'part_of' as const : 'prerequisite' as const,
+  })) : visibleEdges(displayIds), [displayIds, route]);
 
   useEffect(() => { if (rootId) flyTo(-leftInset / 2, 0, .48); }, [flyTo, leftInset, rootId]);
   useEffect(() => {
