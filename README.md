@@ -1,6 +1,6 @@
 # Unknown Unknowns — Data Science Universe
 
-An exploratory concept graph for discovering what to learn next. The interface groups 440 data science concepts into 12 logical domains and supports search, concept details, prerequisite relationships, and point-to-point learning directions.
+An exploratory concept graph for discovering what to learn next. Search any data science concept to open a focused local network, progressively reveal nearby ideas, inspect prerequisite and part-of relationships, or request point-to-point learning directions. The generic `Data Science` root is intentionally hidden, leaving 439 explorable concepts.
 
 ## Open the app
 

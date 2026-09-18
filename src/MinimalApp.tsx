@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import ConceptClusterGraph from './components/ConceptClusterGraph';
-import { concepts, conceptMap, getConceptDescription, relationCount } from './data/concepts';
+import LocalConceptGraph from './components/LocalConceptGraph';
+import { concepts, conceptMap, getConceptSummary, relationCount } from './data/concepts';
 import type { Concept } from './data/concepts';
 import { findKnowledgeRoute, routeStepLabels } from './navigation/route-engine';
 
@@ -20,13 +20,13 @@ function rankResults(query: string, pool = concepts) {
   return pool.filter(concept => concept.name.toLowerCase().includes(value) || concept.region.toLowerCase().includes(value)).sort((a, b) => rank(a) - rank(b) || a.name.localeCompare(b.name)).slice(0, 8);
 }
 
-function Search({ onSelect }: { onSelect: (id: string) => void }) {
+function Search({ onSelect, large = false }: { onSelect: (id: string) => void; large?: boolean }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const results = useMemo(() => rankResults(query), [query]);
   const choose = (concept: Concept) => { onSelect(concept.id); setQuery(''); setOpen(false); };
-  return <div className="minimal-search">
+  return <div className={`minimal-search${large ? ' large' : ''}`}>
     <SearchIcon />
     <input aria-label="Search all concepts" role="combobox" aria-expanded={open} value={query} placeholder="Search concepts and regions" onFocus={() => setOpen(true)} onBlur={() => setTimeout(() => setOpen(false), 130)} onChange={event => { setQuery(event.target.value); setOpen(true); setActive(0); }} onKeyDown={event => {
       if (event.key === 'ArrowDown') { event.preventDefault(); setActive(value => Math.min(value + 1, results.length - 1)); }
@@ -79,17 +79,14 @@ function Directions({ selectedId, startId, endId, onStart, onEnd, onFocus, onSwa
   </aside>;
 }
 
-function Details({ concept, onClose }: { concept: Concept; onClose: () => void }) {
-  const description = getConceptDescription(concept);
-  const sections = [
-    ['The question', description.question], ['Why it fascinates', description.fascination], ['The world it opens', description.world], ['Easiest entrance', description.entrance], ['Why you might care', description.relevance],
-  ];
+function Details({ concept, onClose, onExplore }: { concept: Concept; onClose: () => void; onExplore: (id: string) => void }) {
+  const relations = (ids: string[]) => ids.map(id => conceptMap.get(id)).filter(Boolean);
   return <aside className="minimal-details" aria-labelledby="minimal-details-title">
     <div className="minimal-panel-head"><div><span>{concept.region}</span><h2 id="minimal-details-title">{concept.name}</h2></div><button type="button" aria-label="Close concept details" onClick={onClose}>×</button></div>
     <div className="minimal-detail-scroll">
-      {sections.map(([title, copy]) => <section key={title}><h3>{title}</h3><p>{copy}</p></section>)}
-      {concept.prerequisites.length > 0 && <section><h3>Prerequisites</h3><div className="minimal-tags">{concept.prerequisites.map(id => conceptMap.get(id)).filter(Boolean).map(item => <span key={item!.id}>{item!.name}</span>)}</div></section>}
-      {concept.unlocks.length > 0 && <section><h3>Unlocks</h3><div className="minimal-tags">{concept.unlocks.slice(0, 8).map(id => conceptMap.get(id)).filter(Boolean).map(item => <span key={item!.id}>{item!.name}</span>)}</div></section>}
+      <section><h3>What it is</h3><p>{getConceptSummary(concept)}</p></section>
+      <section><h3>Prerequisites</h3>{concept.prerequisites.length ? <div className="minimal-tags">{relations(concept.prerequisites).map(item => <button type="button" key={item!.id} onClick={() => onExplore(item!.id)}>{item!.name}</button>)}</div> : <p className="minimal-relation-empty">No prerequisite is recorded in the current graph.</p>}</section>
+      <section><h3>Part of</h3>{concept.parents.length ? <div className="minimal-tags">{relations(concept.parents).map(item => <button type="button" key={item!.id} onClick={() => onExplore(item!.id)}>{item!.name}</button>)}</div> : <p className="minimal-relation-empty">No parent concept is recorded in the current graph.</p>}</section>
     </div>
   </aside>;
 }
@@ -98,22 +95,37 @@ export default function MinimalApp() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [openConcept, setOpenConcept] = useState<Concept | null>(null);
   const [focusId, setFocusId] = useState<string | null>(null);
+  const [graphRootId, setGraphRootId] = useState<string | null>(null);
+  const [revealLimit, setRevealLimit] = useState(18);
   const [directionsOpen, setDirectionsOpen] = useState(false);
   const [startId, setStartId] = useState<string | null>(null);
   const [endId, setEndId] = useState<string | null>(null);
   const route = useMemo(() => findKnowledgeRoute(startId, endId), [startId, endId]);
-  const focus = useCallback((id: string) => { setSelectedId(id); setFocusId(id); }, []);
+  const focus = useCallback((id: string) => { setGraphRootId(id); setRevealLimit(18); setSelectedId(id); setFocusId(id); }, []);
   const open = useCallback((id: string) => { const concept = conceptMap.get(id); if (concept) setOpenConcept(concept); setSelectedId(id); }, []);
 
+  const chooseRoutePoint = useCallback((kind: 'start' | 'end', id: string) => {
+    if (kind === 'start') setStartId(id); else setEndId(id);
+    setGraphRootId(current => current ?? id);
+    setSelectedId(id);
+    setOpenConcept(null);
+  }, []);
+
   return <div className="minimal-app">
-    <ConceptClusterGraph selectedId={selectedId} onSelect={id => { setSelectedId(id); if (!id) setOpenConcept(null); }} onOpen={open} focusId={focusId} onFocused={() => setFocusId(null)} route={route} leftInset={directionsOpen ? 390 : 0} />
+    <LocalConceptGraph rootId={graphRootId ?? route?.startId ?? null} selectedId={selectedId} onSelect={id => { setSelectedId(id); if (!id) setOpenConcept(null); }} onOpen={open} focusId={focusId} onFocused={() => setFocusId(null)} route={route} revealLimit={revealLimit} onRevealMore={() => setRevealLimit(value => Math.min(42, value + 8))} leftInset={directionsOpen ? 390 : 0} />
     <header className="minimal-header">
       <div className="minimal-brand"><div className="minimal-logo">DS</div><div><h1>Data Science Universe</h1><span>{concepts.length} concepts · {relationCount} relations</span></div></div>
       <Search onSelect={focus} />
       <div className="minimal-header-actions"><button type="button" className={directionsOpen ? 'primary active' : 'primary'} aria-pressed={directionsOpen} onClick={() => setDirectionsOpen(value => !value)}><RouteIcon/>Directions</button></div>
     </header>
-    {directionsOpen && <Directions selectedId={selectedId} startId={startId} endId={endId} onStart={id => { setStartId(id); setOpenConcept(null); }} onEnd={id => { setEndId(id); setOpenConcept(null); }} onFocus={focus} onSwap={() => { setStartId(endId); setEndId(startId); }} onClear={() => { setStartId(null); setEndId(null); }} onClose={() => setDirectionsOpen(false)} />}
-    {openConcept && <Details concept={openConcept} onClose={() => setOpenConcept(null)} />}
-    {!directionsOpen && !openConcept && <div className="minimal-help">Drag to explore <span>·</span> Scroll to zoom <span>·</span> Double-click a concept to learn more</div>}
+    {directionsOpen && <Directions selectedId={selectedId} startId={startId} endId={endId} onStart={id => chooseRoutePoint('start', id)} onEnd={id => chooseRoutePoint('end', id)} onFocus={focus} onSwap={() => { setStartId(endId); setEndId(startId); }} onClear={() => { setStartId(null); setEndId(null); }} onClose={() => setDirectionsOpen(false)} />}
+    {openConcept && <Details concept={openConcept} onClose={() => setOpenConcept(null)} onExplore={id => { focus(id); setOpenConcept(null); }} />}
+    {!graphRootId && !route && <main className="graph-welcome">
+      <span>START ANYWHERE</span>
+      <h2>What are you curious about?</h2>
+      <p>Search for any data science concept. We will show the idea and a small, navigable network around it.</p>
+      <Search onSelect={focus} large />
+      <div className="graph-suggestions"><span>Try</span>{['probability', 'causal-inference', 'neural-networks'].map(id => { const concept = conceptMap.get(id); return concept ? <button type="button" key={id} onClick={() => focus(id)}>{concept.name}</button> : null; })}</div>
+    </main>}
   </div>;
 }

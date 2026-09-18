@@ -11,7 +11,7 @@ React + Vite + Tailwind CSS application for exploring a structured Data Science 
 ## Structure
 
 - `src/MinimalApp.tsx` — application shell, search, directions, and concept details
-- `src/components/ConceptClusterGraph.tsx` — zoomable clustered concept graph
+- `src/components/LocalConceptGraph.tsx` — progressive, zoomable local concept network
 - `src/data/concepts.ts` — graph normalization and deterministic cluster layout
 - `src/data/concept-universe.json` — 440 concepts
 - `src/data/concept-pairs.json` — prerequisite and part-of relations
