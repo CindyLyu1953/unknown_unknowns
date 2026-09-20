@@ -7,6 +7,7 @@ import type { KnowledgeRoute } from '../navigation/route-engine';
 type RelationshipKind = 'prerequisite' | 'part_of' | 'related';
 type Position = { x: number; y: number };
 type VisibleEdge = { source: string; target: string; kind: RelationshipKind };
+type LabelRect = { x: number; y: number; width: number; height: number };
 
 interface Props {
   rootId: string | null;
@@ -60,6 +61,41 @@ function layoutNeighborhood(rootId: string, ids: string[]) {
   return positions;
 }
 
+function layoutRoute(ids: string[]) {
+  const positions = new Map<string, Position>();
+  let cursor = 0;
+  ids.forEach((id, index) => {
+    const concept = conceptMap.get(id);
+    const previous = index ? conceptMap.get(ids[index - 1]) : null;
+    if (index) {
+      const currentWidth = Math.min(260, Math.max(150, (concept?.name.length ?? 12) * 8));
+      const previousWidth = Math.min(260, Math.max(150, (previous?.name.length ?? 12) * 8));
+      cursor += (currentWidth + previousWidth) / 2 + 110;
+    }
+    positions.set(id, { x: cursor, y: index % 2 ? 34 : -34 });
+  });
+  const center = cursor / 2;
+  positions.forEach(position => { position.x -= center; });
+  return positions;
+}
+
+function wrapLabel(name: string, maxCharacters = 23) {
+  const words = name.split(/\s+/);
+  const lines: string[] = [];
+  let line = '';
+  words.forEach(word => {
+    const next = line ? `${line} ${word}` : word;
+    if (line && next.length > maxCharacters) { lines.push(line); line = word; }
+    else line = next;
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function intersects(left: LabelRect, right: LabelRect, gap = 7) {
+  return left.x < right.x + right.width + gap && left.x + left.width + gap > right.x && left.y < right.y + right.height + gap && left.y + left.height + gap > right.y;
+}
+
 function visibleEdges(ids: string[]) {
   const visible = new Set(ids);
   const edges: VisibleEdge[] = [];
@@ -107,7 +143,7 @@ export default function LocalConceptGraph({ rootId, selectedId, onSelect, onOpen
   const allNearbyCount = useMemo(() => rootId ? buildNeighborhood(rootId, 42).length : 0, [rootId]);
   const displayIds = route?.conceptIds ?? neighborhoodIds;
   const positions = useMemo(() => {
-    if (route) return new Map(route.conceptIds.map((id, index) => [id, { x: (index - (route.conceptIds.length - 1) / 2) * 230, y: 0 }]));
+    if (route) return layoutRoute(route.conceptIds);
     return rootId ? layoutNeighborhood(rootId, neighborhoodIds) : new Map<string, Position>();
   }, [neighborhoodIds, rootId, route]);
   const edges = useMemo(() => route ? route.steps.map(step => ({
@@ -156,21 +192,57 @@ export default function LocalConceptGraph({ rootId, selectedId, onSelect, onOpen
         ctx.fillStyle = '#0969da'; ctx.font = `700 ${10 / zoom}px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(index + 1), -radius * .72, -radius * .72);
       }
       ctx.restore();
+    });
 
+    const occupied: LabelRect[] = [];
+    const labelOrder = [...displayIds].sort((left, right) => {
+      if (left === selectedId || left === rootId) return -1;
+      if (right === selectedId || right === rootId) return 1;
+      return 0;
+    });
+    labelOrder.forEach((id, index) => {
+      const concept = conceptMap.get(id); const position = positions.get(id); if (!concept || !position) return;
+      const isRoot = !route && id === rootId; const selected = id === selectedId;
       const [sx, sy] = worldToScreen(position.x, position.y, W, H);
+      if (sx < -260 || sx > W + 260 || sy < 35 || sy > H + 100) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const fontSize = Math.max(isRoot ? 16 : 14, Math.min(isRoot ? 22 : 20, (isRoot ? 16 : 14) * zoom));
-      const labelHeight = fontSize + 14;
+      const lineHeight = fontSize + 3;
+      const lines = wrapLabel(concept.name, isRoot ? 26 : 22);
+      const labelHeight = lines.length * lineHeight + 12;
       ctx.font = `${isRoot || selected ? 650 : 550} ${fontSize}px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`;
-      const textWidth = Math.min(230, ctx.measureText(concept.name).width + 20);
-      const labelY = sy + (isRoot ? 39 : 27);
-      ctx.beginPath(); ctx.roundRect(sx - textWidth / 2, labelY, textWidth, labelHeight, 7);
+      const textWidth = Math.min(250, Math.max(72, ...lines.map(line => ctx.measureText(line).width)) + 22);
+      const nodeRadius = isRoot ? 38 : 28;
+      const candidates = [
+        { x: sx - textWidth / 2, y: sy + nodeRadius },
+        { x: sx - textWidth / 2, y: sy - nodeRadius - labelHeight },
+        { x: sx + nodeRadius, y: sy - labelHeight / 2 },
+        { x: sx - nodeRadius - textWidth, y: sy - labelHeight / 2 },
+        { x: sx + 34, y: sy + 30 }, { x: sx - textWidth - 34, y: sy + 30 },
+        { x: sx + 34, y: sy - labelHeight - 30 }, { x: sx - textWidth - 34, y: sy - labelHeight - 30 },
+        ...Array.from({ length: 12 }, (_, candidateIndex) => {
+          const angle = (candidateIndex / 12) * Math.PI * 2 + index * .37;
+          const distance = 80 + Math.floor(candidateIndex / 4) * 34;
+          return { x: sx + Math.cos(angle) * distance - textWidth / 2, y: sy + Math.sin(angle) * distance - labelHeight / 2 };
+        }),
+      ];
+      const valid = candidates.filter(candidate => candidate.x >= 8 && candidate.x + textWidth <= W - 8 && candidate.y >= 72 && candidate.y + labelHeight <= H - 8);
+      const chosen = valid.find(candidate => !occupied.some(rect => intersects({ ...candidate, width: textWidth, height: labelHeight }, rect))) ?? valid.sort((left, right) => {
+        const overlapCount = (candidate: { x: number; y: number }) => occupied.filter(rect => intersects({ ...candidate, width: textWidth, height: labelHeight }, rect)).length;
+        return overlapCount(left) - overlapCount(right);
+      })[0];
+      if (!chosen) return;
+      const labelRect = { ...chosen, width: textWidth, height: labelHeight };
+      occupied.push(labelRect);
+      const labelCenterX = chosen.x + textWidth / 2; const labelCenterY = chosen.y + labelHeight / 2;
+      if (Math.hypot(labelCenterX - sx, labelCenterY - sy) > 58) {
+        ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(labelCenterX, labelCenterY); ctx.strokeStyle = selected ? '#7db9ad' : '#c7d3ce'; ctx.lineWidth = 1; ctx.stroke();
+      }
+      ctx.beginPath(); ctx.roundRect(chosen.x, chosen.y, textWidth, labelHeight, 7);
       ctx.fillStyle = isRoot ? '#163e35' : 'rgba(255,255,255,.97)'; ctx.fill();
       ctx.strokeStyle = selected ? '#1c8c78' : '#d7dfd9'; ctx.lineWidth = 1; ctx.stroke();
       ctx.fillStyle = isRoot ? '#fff' : '#172622'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      const label = concept.name.length > 27 ? `${concept.name.slice(0, 25)}…` : concept.name;
-      ctx.fillText(label, sx, labelY + labelHeight / 2);
-      ctx.setTransform(dpr * zoom, 0, 0, dpr * zoom, dpr * (W / 2 - camera.current.x * zoom), dpr * (H / 2 - camera.current.y * zoom));
+      lines.forEach((line, lineIndex) => ctx.fillText(line, labelCenterX, chosen.y + 6 + lineHeight * (lineIndex + .5)));
     });
 
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
