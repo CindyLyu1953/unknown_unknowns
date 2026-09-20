@@ -2,6 +2,8 @@
 
 html, body, #root {
   height: 100%;
+  width: 100%;
+  min-width: 0;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -164,7 +166,7 @@ button, input {
 .database-pagination button:disabled { cursor: default; opacity: .48; }
 
 .minimal-directions,
-.minimal-details { position: absolute; z-index: 25; top: 64px; bottom: 0; display: flex; flex-direction: column; background: rgba(255,255,255,.98); box-shadow: 0 8px 24px rgba(140,149,159,.2); }
+.minimal-details { position: absolute; z-index: 25; top: 64px; bottom: 0; display: flex; flex-direction: column; background: #fff; box-shadow: 0 8px 24px rgba(140,149,159,.2); }
 .minimal-directions { left: 0; width: 390px; border-right: 1px solid var(--minimal-border); }
 .minimal-details { right: 0; width: 430px; border-left: 1px solid var(--minimal-border); }
 .minimal-panel-head { min-height: 78px; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 18px 20px; border-bottom: 1px solid var(--minimal-border); }
@@ -246,32 +248,54 @@ button, input {
 .graph-legend span { display: flex; align-items: center; gap: 7px; }
 .graph-legend i { width: 22px; height: 0; border-top: 2px solid #65a595; }
 .graph-legend i.dashed { border-top-style: dashed; border-top-color: #9eaea8; }
-.graph-reveal { position: absolute; z-index: 20; bottom: 22px; left: 50%; transform: translateX(-50%); padding: 9px 14px; border: 1px solid #b9cec6; border-radius: 999px; color: #286d60; background: rgba(255,255,255,.94); box-shadow: 0 3px 12px rgba(34,67,56,.1); font-size: 12px; font-weight: 600; }
-.graph-reveal:hover { border-color: #6ca899; background: #f2f8f5; }
-
-.graph-controls { position: absolute; z-index: 20; right: 20px; bottom: 28px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--minimal-border); border-radius: 8px; background: #fff; box-shadow: 0 3px 12px rgba(31,35,40,.15); }
-.graph-controls button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-bottom: 1px solid var(--minimal-border); color: var(--minimal-text); background: #fff; font-size: 20px; }
-.graph-controls button:last-child { border-bottom: 0; }
-.graph-controls button:hover { background: #f6f8fa; }
+.graph-controls { position: absolute; z-index: 20; right: 20px; bottom: 28px; width: 220px; overflow: hidden; border: 1px solid var(--minimal-border); border-radius: 9px; background: #fff; box-shadow: 0 3px 12px rgba(31,35,40,.15); }
+.graph-camera-controls { display: grid; grid-template-columns: repeat(3, 1fr); }
+.graph-camera-controls button { height: 44px; display: grid; place-items: center; border: 0; border-right: 1px solid var(--minimal-border); color: var(--minimal-text); background: #fff; font-size: 20px; }
+.graph-camera-controls button:last-child { border-right: 0; }
+.graph-concept-controls { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--minimal-border); }
+.graph-concept-controls button { min-height: 44px; padding: 0 10px; border: 0; border-right: 1px solid var(--minimal-border); color: #286d60; background: #fff; font-size: 12px; font-weight: 600; }
+.graph-concept-controls button:last-child { border-right: 0; }
+.graph-controls button:hover:not(:disabled) { background: #f2f8f5; }
+.graph-controls button:active:not(:disabled) { background: #e8f3ee; }
+.graph-controls button:disabled { cursor: default; color: #8c959f; background: #f6f8fa; }
 @media (max-width: 900px) {
-  .minimal-header { grid-template-columns: 1fr auto; gap: 12px; }
-  .minimal-brand span,
-  .minimal-search { position: absolute; top: 72px; left: 12px; right: 12px; }
-  .minimal-directions { top: 120px; width: min(390px, 100%); }
-  .minimal-details { top: 64px; width: min(430px, 100%); }
-  .graph-context, .graph-legend { left: 12px; }
-  .graph-welcome { top: 56%; padding: 24px; }
-  .database-page { top: 64px; }
+  .minimal-header { height: 116px; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 60px 48px; column-gap: 10px; row-gap: 0; padding: 0 12px 8px; }
+  .minimal-brand { grid-column: 1; grid-row: 1; }
+  .minimal-brand span { display: none; }
+  .minimal-header-actions { grid-column: 2; grid-row: 1; }
+  .minimal-header > .minimal-search { position: relative; inset: auto; grid-column: 1 / -1; grid-row: 2; width: 100%; }
+  .minimal-header > .minimal-search input,
+  .minimal-picker input { font-size: 16px; }
+  .minimal-key { display: none; }
+  .minimal-directions,
+  .minimal-details { top: 116px; width: 100%; max-width: none; border-right: 0; border-left: 0; box-shadow: none; }
+  .graph-context { top: 132px; left: 12px; }
+  .graph-legend { top: 196px; left: 12px; }
+  .graph-welcome { top: calc(50% + 42px); padding: 24px; }
+  .graph-welcome .minimal-search { display: none; }
+  .graph-welcome > p { margin-bottom: 16px; }
+  .database-page { inset: 116px 0 0; }
   .database-heading { align-items: flex-start; padding: 22px 16px 18px; }
   .database-heading p, .database-stats { display: none; }
   .database-toolbar { grid-template-columns: 1fr; padding: 14px 16px; }
   .database-result-count { padding: 0; text-align: left; }
   .database-table-wrap { margin: 0 16px; }
   .database-pagination { padding: 12px 16px 16px; }
+  .graph-controls { right: 12px; bottom: calc(16px + env(safe-area-inset-bottom)); }
+  .minimal-detail-action { padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
 }
 
 @media (max-width: 560px) {
-  .minimal-header-actions .secondary { width: 40px; padding: 0; font-size: 0; }
-  .minimal-header-actions .secondary svg { width: 18px; height: 18px; }
+  .minimal-header-actions button { width: 44px; min-width: 44px; padding: 0; }
+  .minimal-header-actions button span { display: none; }
+  .minimal-header-actions button svg { width: 18px; height: 18px; }
+  .minimal-brand h1 { overflow: hidden; font-size: 14px; text-overflow: ellipsis; }
+  .graph-welcome { width: calc(100% - 24px); padding: 24px 18px; }
+  .graph-welcome h2 { font-size: clamp(27px, 9vw, 36px); }
+  .minimal-panel-head { min-height: 72px; padding: 14px 16px; }
+  .minimal-route-form { padding: 14px 16px; }
+  .minimal-route-body { padding: 16px 16px 28px; }
+  .minimal-detail-scroll { padding: 4px 20px 24px; }
+  .minimal-selected > div { grid-template-columns: 1fr; }
   .database-pagination { align-items: flex-start; flex-direction: column; }
 }

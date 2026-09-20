@@ -114,7 +114,7 @@ export default function MinimalApp() {
   const [endId, setEndId] = useState<string | null>(null);
   const route = useMemo(() => findKnowledgeRoute(startId, endId), [startId, endId]);
   const focus = useCallback((id: string) => { setView('universe'); setGraphRootId(id); setRevealLimit(18); setSelectedId(id); setFocusId(id); }, []);
-  const open = useCallback((id: string) => { const concept = conceptMap.get(id); if (concept) setOpenConcept(concept); setSelectedId(id); }, []);
+  const open = useCallback((id: string) => { const concept = conceptMap.get(id); if (concept) setOpenConcept(concept); setSelectedId(id); setDirectionsOpen(false); }, []);
 
   const chooseRoutePoint = useCallback((kind: 'start' | 'end', id: string) => {
     if (kind === 'start') setStartId(id); else setEndId(id);
@@ -124,11 +124,11 @@ export default function MinimalApp() {
   }, []);
 
   return <div className="minimal-app">
-    {view === 'universe' && <LocalConceptGraph rootId={graphRootId ?? route?.startId ?? null} selectedId={selectedId} onSelect={id => { setSelectedId(id); if (!id) setOpenConcept(null); }} onOpen={open} focusId={focusId} onFocused={() => setFocusId(null)} route={route} revealLimit={revealLimit} onRevealMore={() => setRevealLimit(value => Math.min(42, value + 8))} leftInset={directionsOpen ? 390 : 0} />}
+    {view === 'universe' && <LocalConceptGraph rootId={graphRootId ?? route?.startId ?? null} selectedId={selectedId} onSelect={id => { setSelectedId(id); if (!id) setOpenConcept(null); }} onOpen={open} focusId={focusId} onFocused={() => setFocusId(null)} route={route} revealLimit={revealLimit} onRevealMore={() => setRevealLimit(value => Math.min(42, value + 8))} onRevealLess={() => setRevealLimit(value => Math.max(18, value - 8))} leftInset={directionsOpen ? 390 : 0} />}
     <header className="minimal-header">
       <div className="minimal-brand"><div className="minimal-logo">DS</div><div><h1>Data Science Universe</h1><span>{concepts.length} concepts · {relationCount} relations</span></div></div>
       <Search onSelect={focus} />
-      <div className="minimal-header-actions"><button type="button" className={view === 'database' ? 'secondary active' : 'secondary'} aria-pressed={view === 'database'} onClick={() => { setView(value => value === 'database' ? 'universe' : 'database'); setDirectionsOpen(false); setOpenConcept(null); }}><DatabaseIcon/>Database</button><button type="button" className={directionsOpen ? 'primary active' : 'primary'} aria-pressed={directionsOpen} onClick={() => { setView('universe'); setDirectionsOpen(value => !value); }}><RouteIcon/>Directions</button></div>
+      <div className="minimal-header-actions"><button type="button" className={view === 'database' ? 'secondary active' : 'secondary'} aria-label="Database" title="Database" aria-pressed={view === 'database'} onClick={() => { setView(value => value === 'database' ? 'universe' : 'database'); setDirectionsOpen(false); setOpenConcept(null); }}><DatabaseIcon/><span>Database</span></button><button type="button" className={directionsOpen ? 'primary active' : 'primary'} aria-label="Directions" title="Directions" aria-pressed={directionsOpen} onClick={() => { setView('universe'); setOpenConcept(null); setDirectionsOpen(value => !value); }}><RouteIcon/><span>Directions</span></button></div>
     </header>
     {view === 'database' && <Suspense fallback={<main className="database-page database-loading">Loading relationship database…</main>}><ConceptDatabase onOpenConcept={focus} /></Suspense>}
     {view === 'universe' && directionsOpen && <Directions selectedId={selectedId} startId={startId} endId={endId} onStart={id => chooseRoutePoint('start', id)} onEnd={id => chooseRoutePoint('end', id)} onFocus={focus} onSwap={() => { setStartId(endId); setEndId(startId); }} onClear={() => { setStartId(null); setEndId(null); }} onClose={() => setDirectionsOpen(false)} />}

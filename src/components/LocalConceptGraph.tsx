@@ -19,6 +19,7 @@ interface Props {
   route: KnowledgeRoute | null;
   revealLimit: number;
   onRevealMore: () => void;
+  onRevealLess: () => void;
   leftInset?: number;
 }
 
@@ -128,13 +129,16 @@ function drawEdge(ctx: CanvasRenderingContext2D, from: Position, to: Position, k
   ctx.restore();
 }
 
-export default function LocalConceptGraph({ rootId, selectedId, onSelect, onOpen, focusId, onFocused, route, revealLimit, onRevealMore, leftInset = 0 }: Props) {
+export default function LocalConceptGraph({ rootId, selectedId, onSelect, onOpen, focusId, onFocused, route, revealLimit, onRevealMore, onRevealLess, leftInset = 0 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(0);
   const sizeRef = useRef({ width: 1, height: 1, dpr: 1 });
-  const dragging = useRef(false); const dragged = useRef(false); const dragStart = useRef({ x: 0, y: 0 });
+  const pointers = useRef(new Map<number, Position>());
+  const dragged = useRef(false);
+  const pressStart = useRef<Position | null>(null);
+  const dragStart = useRef<Position | null>(null);
+  const pinch = useRef<{ distance: number; center: Position } | null>(null);
   const clickMemory = useRef<{ id: string; time: number } | null>(null);
-  const lastReveal = useRef(0);
   const [cursor, setCursor] = useState('grab');
   const { camera, worldToScreen, pan, zoomAt, flyTo, reset, cancelFlight } = useCamera({ x: 0, y: 0, zoom: .48 });
 
@@ -265,24 +269,83 @@ export default function LocalConceptGraph({ rootId, selectedId, onSelect, onOpen
 
   const handleWheel = useCallback((event: WheelEvent) => {
     event.preventDefault();
-    if (event.deltaY > 0 && revealLimit < allNearbyCount && Date.now() - lastReveal.current > 350) { lastReveal.current = Date.now(); onRevealMore(); }
-  }, [allNearbyCount, onRevealMore, revealLimit]);
+    cancelFlight();
+    const point = localPoint(event.clientX, event.clientY);
+    const { width, height } = sizeRef.current;
+    const sensitivity = event.ctrlKey ? .01 : event.deltaMode === WheelEvent.DOM_DELTA_LINE ? .075 : .0018;
+    const factor = Math.max(.72, Math.min(1.38, Math.exp(-event.deltaY * sensitivity)));
+    zoomAt(point.x, point.y, width, height, factor);
+  }, [cancelFlight, localPoint, zoomAt]);
   useEffect(() => { const canvas = canvasRef.current; if (!canvas) return; canvas.addEventListener('wheel', handleWheel, { passive: false }); return () => canvas.removeEventListener('wheel', handleWheel); }, [handleWheel]);
   const zoomCenter = (factor: number) => { const { width, height } = sizeRef.current; zoomAt(width / 2, height / 2, width, height, factor); };
 
   return <div className="relative h-full w-full">
-    <canvas ref={canvasRef} className="absolute inset-0 h-full w-full touch-none" style={{ cursor }} aria-label={root ? `Local concept network around ${root.name}` : 'Concept network waiting for a search'} onPointerDown={event => { cancelFlight(); event.currentTarget.setPointerCapture(event.pointerId); dragging.current = true; dragged.current = false; dragStart.current = { x: event.clientX, y: event.clientY }; }} onPointerMove={event => {
-      if (!dragging.current) { setCursor(findConcept(event.clientX, event.clientY) ? 'pointer' : 'grab'); return; }
-      const dx = event.clientX - dragStart.current.x; const dy = event.clientY - dragStart.current.y; if (Math.abs(dx) + Math.abs(dy) > 3) dragged.current = true; pan(dx, dy); dragStart.current = { x: event.clientX, y: event.clientY }; setCursor('grabbing');
+    <canvas ref={canvasRef} className="absolute inset-0 h-full w-full touch-none" style={{ cursor }} aria-label={root ? `Local concept network around ${root.name}` : 'Concept network waiting for a search'} onPointerDown={event => {
+      cancelFlight();
+      event.currentTarget.setPointerCapture(event.pointerId);
+      const point = { x: event.clientX, y: event.clientY };
+      pointers.current.set(event.pointerId, point);
+      if (pointers.current.size === 1) {
+        dragged.current = false;
+        pressStart.current = point;
+        dragStart.current = point;
+        pinch.current = null;
+      } else if (pointers.current.size === 2) {
+        const [first, second] = [...pointers.current.values()];
+        pinch.current = {
+          distance: Math.max(1, Math.hypot(second.x - first.x, second.y - first.y)),
+          center: { x: (first.x + second.x) / 2, y: (first.y + second.y) / 2 },
+        };
+        dragged.current = true;
+      }
+      setCursor('grabbing');
+    }} onPointerMove={event => {
+      if (!pointers.current.has(event.pointerId)) { setCursor(findConcept(event.clientX, event.clientY) ? 'pointer' : 'grab'); return; }
+      const point = { x: event.clientX, y: event.clientY };
+      pointers.current.set(event.pointerId, point);
+      if (pointers.current.size >= 2) {
+        const [first, second] = [...pointers.current.values()];
+        const center = { x: (first.x + second.x) / 2, y: (first.y + second.y) / 2 };
+        const distance = Math.max(1, Math.hypot(second.x - first.x, second.y - first.y));
+        const previous = pinch.current;
+        if (previous) {
+          pan(center.x - previous.center.x, center.y - previous.center.y);
+          const local = localPoint(center.x, center.y);
+          const { width, height } = sizeRef.current;
+          zoomAt(local.x, local.y, width, height, distance / previous.distance);
+        }
+        pinch.current = { distance, center };
+        dragged.current = true;
+        setCursor('grabbing');
+        return;
+      }
+      const previous = dragStart.current;
+      const origin = pressStart.current;
+      if (previous) pan(point.x - previous.x, point.y - previous.y);
+      if (origin && Math.hypot(point.x - origin.x, point.y - origin.y) > 8) dragged.current = true;
+      dragStart.current = point;
+      setCursor('grabbing');
     }} onPointerUp={event => {
-      dragging.current = false; setCursor('grab'); if (dragged.current) return; const id = findConcept(event.clientX, event.clientY); const now = Date.now();
+      const wasPinching = pointers.current.size > 1 || pinch.current !== null;
+      pointers.current.delete(event.pointerId);
+      if (pointers.current.size) {
+        const remaining = [...pointers.current.values()][0];
+        pressStart.current = remaining;
+        dragStart.current = remaining;
+        pinch.current = null;
+        return;
+      }
+      pressStart.current = null; dragStart.current = null; pinch.current = null; setCursor('grab');
+      if (dragged.current || wasPinching) return; const id = findConcept(event.clientX, event.clientY); const now = Date.now();
       if (!id) { onSelect(null); clickMemory.current = null; return; }
       if (clickMemory.current?.id === id && now - clickMemory.current.time < 420) { onOpen(id); clickMemory.current = null; }
       else { onSelect(id); clickMemory.current = { id, time: now }; }
-    }} onPointerCancel={() => { dragging.current = false; setCursor('grab'); }} />
+    }} onPointerCancel={() => { pointers.current.clear(); pressStart.current = null; dragStart.current = null; pinch.current = null; setCursor('grab'); }} />
     {root && <div className="graph-context"><strong>{route ? 'Learning route' : root.name}</strong><span>{route ? `${route.conceptIds.length} concepts` : `${displayIds.length} of ${allNearbyCount} nearby concepts`}</span></div>}
     {root && !route && <div className="graph-legend"><span><i className="solid"/>prerequisite</span><span><i className="dashed"/>part of</span></div>}
-    {root && !route && revealLimit < allNearbyCount && <button type="button" className="graph-reveal" onClick={onRevealMore}>Scroll or click to reveal more</button>}
-    {root && <div className="graph-controls" aria-label="Graph controls"><button type="button" aria-label="Zoom in" onClick={() => zoomCenter(1.25)}>+</button><button type="button" aria-label="Zoom out" onClick={() => zoomCenter(.8)}>−</button><button type="button" aria-label="Reset graph view" onClick={reset}><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 11a8 8 0 1 1 2.2 5.5M4 11V5m0 6h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>}
+    {root && <div className="graph-controls" aria-label="Graph controls">
+      <div className="graph-camera-controls"><button type="button" aria-label="Zoom in" title="Zoom in" onClick={() => zoomCenter(1.25)}>+</button><button type="button" aria-label="Zoom out" title="Zoom out" onClick={() => zoomCenter(.8)}>−</button><button type="button" aria-label="Reset graph view" title="Reset graph view" onClick={reset}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.2 5.5M4 11V5m0 6h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+      {!route && <div className="graph-concept-controls"><button type="button" onClick={onRevealLess} disabled={revealLimit <= 18}>Show less</button><button type="button" onClick={onRevealMore} disabled={revealLimit >= allNearbyCount}>Show more</button></div>}
+    </div>}
   </div>;
 }
