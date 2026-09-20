@@ -98,6 +98,7 @@ function Details({ concept, onClose, onExplore }: { concept: Concept; onClose: (
       <section><h3>Prerequisites</h3>{concept.prerequisites.length ? <div className="minimal-tags">{relations(concept.prerequisites).map(item => <button type="button" key={item!.id} onClick={() => onExplore(item!.id)}>{item!.name}</button>)}</div> : <p className="minimal-relation-empty">No prerequisite is recorded in the current graph.</p>}</section>
       <section><h3>Part of</h3>{concept.parents.length ? <div className="minimal-tags">{relations(concept.parents).map(item => <button type="button" key={item!.id} onClick={() => onExplore(item!.id)}>{item!.name}</button>)}</div> : <p className="minimal-relation-empty">No parent concept is recorded in the current graph.</p>}</section>
     </div>
+    <div className="minimal-detail-action"><button type="button" onClick={() => onExplore(concept.id)}>Center on this concept<svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg></button></div>
   </aside>;
 }
 

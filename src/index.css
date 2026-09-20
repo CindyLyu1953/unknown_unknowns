@@ -227,6 +227,9 @@ button, input {
 .minimal-tags button { padding: 5px 9px; border: 1px solid var(--minimal-border); border-radius: 999px; color: #246d60; background: #f6faf8; font-size: 12px; }
 .minimal-tags button:hover { border-color: #70a99d; background: #edf7f3; }
 .minimal-relation-empty { color: var(--minimal-muted) !important; font-size: 13px !important; }
+.minimal-detail-action { flex: none; padding: 16px 20px 20px; border-top: 1px solid var(--minimal-border); background: #fff; }
+.minimal-detail-action button { width: 100%; min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 16px; border: 1px solid rgba(27,31,36,.15); border-radius: 7px; color: #fff; background: #1f883d; box-shadow: 0 1px 0 rgba(27,31,36,.1); font-size: 14px; font-weight: 600; transition: background 160ms ease; }
+.minimal-detail-action button:hover { background: #1a7f37; }
 
 .graph-welcome { position: absolute; z-index: 22; top: 50%; left: 50%; width: min(560px, calc(100% - 40px)); transform: translate(-50%, -45%); padding: 36px; border: 1px solid #d5ded9; border-radius: 18px; background: rgba(255,255,252,.96); box-shadow: 0 18px 60px rgba(37,69,58,.12); text-align: center; backdrop-filter: blur(14px); }
 .graph-welcome > span { color: #398577; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
